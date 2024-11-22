@@ -81,12 +81,12 @@ export default function Blog() {
                     ))}
                   </div>
                   <h3 className="blog-title style1">
-                    <Link scroll={false} href={`/blog-details/${card.id}`}>
+                    <Link scroll={false} href={``}>
                       {card.title}
                     </Link>
                   </h3>
                   <div className="btn-wrapper">
-                    <Link scroll={false} href={`/blog-details/${card.id}`}>
+                    <Link scroll={false} href={``}>
                       Read More
                       <Image
                         alt="icon"

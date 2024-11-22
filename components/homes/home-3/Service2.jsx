@@ -121,7 +121,7 @@ export default function Service2() {
             </div>
 
             {/* Link to Get Started */}
-            <Link scroll={false} className="gt-btn gt-btn-icon" href={`/contact`}>
+            <Link scroll={true} className="gt-btn gt-btn-icon" href={`#form`}>
               Get Started
             </Link>
           </div>

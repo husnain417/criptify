@@ -57,8 +57,8 @@ export default function Header1() {
                     <i className="far fa-search" />
                   </button>
                   <Link
-                    scroll={false}
-                    href={`/contact`}
+                    scroll={true}
+                    href={`#contact`}
                     className="gt-btn gt-btn-icon"
                   >
                     GET IN TOUCH

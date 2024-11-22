@@ -216,9 +216,9 @@ export default function Features() {
                           </ul>
                         </div>
                         <Link
-                          scroll={false}
+                          scroll={true}
                           className="gt-btn gt-btn-icon"
-                          href={`/contact`}
+                          href={`#form`}
                         >
                           Get Started
                         </Link>
@@ -290,9 +290,9 @@ export default function Features() {
                             </ul>
                           </div>
                           <Link
-                          scroll={false}
+                          scroll={true}
                           className="gt-btn gt-btn-icon"
-                          href={`/contact`}
+                          href={`#form`}
                         >
                           Get Started
                         </Link>
@@ -365,9 +365,9 @@ export default function Features() {
                           </ul>
                         </div>
                         <Link
-                          scroll={false}
+                          scroll={true}
                           className="gt-btn gt-btn-icon"
-                          href={`/contact`}
+                          href={`#form`}
                         >
                           Get Started
                         </Link>

@@ -96,7 +96,7 @@ export default function Footer2() {
                     <ul className="menu">
                       {footerLinks.map((item, index) => (
                         <li key={index}>
-                          <Link scroll={false} href={item.href}>
+                          <Link scroll={true} href={item.href}>
                             <i className="fa-solid fa-chevrons-right" />
                             {item.text}
                           </Link>
@@ -219,10 +219,10 @@ export default function Footer2() {
             </div>
             <div className="layout-link">
               <div className="link-wrapper">
-                <Link scroll={false} href={`/home-3`}>
+                <Link scroll={false} href={`/`}>
                   Terms &amp; Condition{" "}
                 </Link>
-                <Link scroll={false} href={`/home-3`}>
+                <Link scroll={false} href={`/`}>
                   Privacy Policy
                 </Link>
               </div>

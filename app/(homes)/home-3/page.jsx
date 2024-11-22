@@ -29,10 +29,10 @@ export default function Page() {
       <HeaderTop />
       <Header1 />
       <main className="main position-relative" id="mains">
-        <section id="home">
+        <section id="hero">
           <Hero />
         </section>
-        <section id="services">
+        <section id="about">
           <Services />
         </section>
         {/* <section id="about">
@@ -75,7 +75,9 @@ export default function Page() {
           <DownloadApp />
         </section> */}
       </main>
+      <section id="contact">
       <Footer2 />
+      </section>
     </>
   );
 }

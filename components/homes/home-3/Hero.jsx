@@ -272,8 +272,8 @@ export default function Hero() {
                   >
                     <div className="btn-wrap">
                       <Link
-                        scroll={false}
-                        href={`/contact`}
+                        scroll={true}
+                        href={`#form`}
                         className="gt-btn gt-btn-icon"
                       >
                         Get started

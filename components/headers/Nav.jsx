@@ -2,6 +2,7 @@
 import { menuItems } from "@/data/menu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -16,17 +17,91 @@ export default function Nav() {
     return isActive;
   };
 
+  // Handle both section scrolling and page navigation
+  const handleClick = (e, href) => {
+    // If it's a hash link (section navigation)
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.replace("#", "");
+      const element = document.getElementById(targetId);
+      
+      if (element) {
+        // Add smooth scrolling
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+    // For regular page navigation, let Link handle it
+  };
+
+  // Add scroll spy functionality
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section[id]");
+      const scrollPosition = window.scrollY + 100; // Offset for header
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute("id");
+
+        if (
+          scrollPosition >= sectionTop &&
+          scrollPosition < sectionTop + sectionHeight
+        ) {
+          // Find and update active menu item
+          document.querySelectorAll(".main-menu a").forEach((link) => {
+            link.classList.remove("menuActive");
+            if (link.getAttribute("href") === `#${sectionId}`) {
+              link.classList.add("menuActive");
+            }
+          });
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const renderMenuItem = (item) => {
+    // If item has subMenu, render dropdown
+    if (item.subMenu) {
+      return (
+        <ul className="sub-menu">
+          {item.subMenu.map((subItem, subIndex) => (
+            <li key={subIndex}>
+              <Link
+                scroll={false}
+                href={subItem.href}
+                onClick={(e) => handleClick(e, subItem.href)}
+                className={`${isMenuActive(subItem) ? "menuActive" : ""}`}
+              >
+                {subItem.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    return null;
+  };
+
   return (
     <>
       {menuItems.map((item, index) => (
-        <li key={index}>
+        <li key={index} className={item.subMenu ? "menu-item-has-children" : ""}>
           <Link
             scroll={false}
-            className={`${isMenuActive(item) ? "menuActive" : ""}`}
             href={item.href}
+            onClick={(e) => handleClick(e, item.href)}
+            className={`${isMenuActive(item) ? "menuActive" : ""}`}
           >
             {item.title}
           </Link>
+          {renderMenuItem(item)}
         </li>
       ))}
     </>
