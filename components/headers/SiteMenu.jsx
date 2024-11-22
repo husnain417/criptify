@@ -147,7 +147,7 @@ export default function SiteMenu() {
                     href="mailto:mailinfo00@techo.com"
                     className="info-box_link"
                   >
-                    mailinfo00@techo.com
+                    mailinfo00@info.com
                   </a>
                 </p>
                 <p>
@@ -155,7 +155,7 @@ export default function SiteMenu() {
                     href="mailto:support24@techo.com"
                     className="info-box_link"
                   >
-                    support24@techo.com
+                    support24@info.com
                   </a>
                 </p>
               </div>
