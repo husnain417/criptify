@@ -1,0 +1,175 @@
+.lead-capture-area {
+    background-color: #f4f7fb; // Light background color for the section
+    padding: 50px 0;
+  
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff; // White background for the form container
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); // Soft shadow to elevate the container
+    }
+  
+    .title-area {
+      margin-bottom: 40px;
+  
+      .subtitle {
+        color: #007bff; // Blue for subtitle
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+  
+      .title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #333; // Dark text for the main title
+      }
+    }
+  
+    .lead-capture-form {
+      .form-group {
+        margin-bottom: 20px;
+        position: relative;
+  
+        label {
+          display: block;
+          font-size: 14px;
+          font-weight: 600;
+          color: #555; // Slightly darker text for labels
+          margin-bottom: 8px;
+        }
+  
+        input,
+        select {
+          width: 100%;
+          padding: 12px;
+          font-size: 16px;
+          color: #333;
+          border: 1px solid #ddd; // Light gray border
+          border-radius: 8px;
+          transition: all 0.3s ease;
+          background-color: #fafafa; // Light background color for inputs
+        }
+  
+        // Focus effect
+        input:focus,
+        select:focus {
+          border-color: #007bff; // Blue border on focus
+          background-color: #fff; // White background on focus
+          outline: none;
+        }
+  
+        // Invalid input border
+        .is-invalid {
+          border-color: #dc3545 !important;
+        }
+  
+        .invalid-feedback {
+          color: #dc3545; // Red for error messages
+          font-size: 12px;
+          position: absolute;
+          bottom: -18px;
+          left: 0;
+        }
+      }
+  
+      .gt-btn {
+        width: 100%;
+        padding: 14px;
+        background-color: #007bff; // Blue button background
+        color: #fff;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+  
+        &:hover {
+          background-color: #0056b3; // Darker blue on hover
+        }
+      }
+  
+      .text-muted {
+        font-size: 12px;
+        color: #777; // Muted text for the GDPR notice
+      }
+    }
+  }
+  
+  // Tablet (768px to 1024px)
+  @media (max-width: 1024px) {
+    .lead-capture-area {
+      padding: 40px 20px; // Adjust padding for tablet
+    }
+  
+    .container {
+      padding: 20px;
+      max-width: 90%; // Allow the form to take up more space on tablets
+    }
+  
+    .title-area {
+      margin-bottom: 30px;
+    }
+  
+    .title {
+      font-size: 24px; // Slightly smaller title font size
+    }
+  
+    .form-group {
+      margin-bottom: 15px; // Slightly reduce the gap between form fields
+    }
+  
+    .gt-btn {
+      font-size: 15px; // Adjust button text size
+    }
+  
+    .text-muted {
+      font-size: 14px; // Adjust footer text size
+    }
+  }
+  
+  // Mobile (up to 767px)
+  @media (max-width: 767px) {
+    .lead-capture-area {
+      padding: 30px 15px; // Smaller padding for mobile
+    }
+  
+    .container {
+      padding: 20px;
+      max-width: 100%; // Ensure the form takes up the full width on mobile
+    }
+  
+    .title-area {
+      margin-bottom: 20px;
+    }
+  
+    .title {
+      font-size: 22px; // Smaller title font size on mobile
+    }
+  
+    .form-group {
+      margin-bottom: 12px; // Reduce margin for mobile
+    }
+  
+    label {
+      font-size: 13px; // Reduce label font size
+    }
+  
+    input,
+    select {
+      padding: 10px; // Smaller padding for mobile inputs
+      font-size: 14px; // Smaller font size for mobile inputs
+    }
+  
+    .gt-btn {
+      padding: 12px; // Smaller padding for mobile button
+      font-size: 14px; // Smaller button text size
+    }
+  
+    .text-muted {
+      font-size: 12px; 
+    }
+  }
+  

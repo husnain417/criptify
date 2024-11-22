@@ -1,0 +1,163 @@
+/* General Section Styles */
+.lead-capture-section {
+    padding: 50px 0;
+}
+
+.sub{
+    color: #6417e0;
+}
+
+.container-space {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+/* Header Styling */
+.section-header .subheading {
+    font-size: 1.2rem;
+    color: #4c4c4c;
+    margin-bottom: 10px;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.titleIcon {
+    margin-right: 10px;
+}
+
+/* Form Styles */
+.form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.input-field:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.input-error {
+    border-color: #ff4d4d;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.875rem;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.gdpr-notice {
+    font-size: 0.875rem;
+    color: #888;
+}
+
+.gdpr-notice a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.gdpr-notice a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .lead-capture-section {
+        padding: 40px 15px;
+    }
+
+    .container-space {
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .form-container {
+        padding: 15px;
+    }
+
+    .input-field {
+        font-size: 0.95rem;
+        padding: 8px;
+    }
+
+    .submit-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .gdpr-notice {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .lead-capture-section {
+        padding: 30px 10px;
+    }
+
+    .container-space {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .main-title {
+        font-size: 1.8rem;
+    }
+
+    .form-container {
+        padding: 10px;
+    }
+
+    .input-field {
+        font-size: 0.9rem;
+        padding: 7px;
+    }
+
+    .submit-button {
+        font-size: 0.95rem;
+        padding: 8px 18px;
+    }
+
+    .gdpr-notice {
+        font-size: 0.75rem;
+    }
+}
