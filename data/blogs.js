@@ -37,7 +37,7 @@ export const blogCards = [
   },
   {
     id: 3,
-    thumb: "/assets/img/blog/future.webp",
+    thumb: "/assets/img/blog/block.jpg",
     meta: [
       {
         icon: "/assets/img/icon/userIcon.png",
