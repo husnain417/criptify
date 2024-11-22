@@ -76,41 +76,41 @@ export const menuItems = [
     title: "About Us",
     href: "#about",  // Update the href to match the section ID
   },
-  {
-    title: "Services",
-    href: "#services",  // Update the href to match the section ID
-    subMenu: [
-      { title: "Services One", href: "/service-1" },
-      { title: "Services Two", href: "/service-2" },
-      { title: "Service Details", href: "/service-details/1" },
-    ],
-  },
-  {
-    title: "Pages",
-    href: "#", 
-    subMenu: [
-      {
-        title: "Project Page",
-        href: "/project",
-        subMenu: [
-          { title: "Project", href: "/project" },
-          { title: "Project Details", href: "/project-details/1" },
-        ],
-      },
-      {
-        title: "Team Page",
-        href: "/team-1",
-        subMenu: [
-          { title: "Team One", href: "/team-1" },
-          { title: "Team Two", href: "/team-2" },
-          { title: "Team Details", href: "/team-details/1" },
-        ],
-      },
-      { title: "Pricing Page", href: "/pricing" },
-      { title: "FAQ'S", href: "/faq" },
-      { title: "Error Page", href: "/error" },
-    ],
-  },
+  // {
+  //   title: "Services",
+  //   href: "#services",  // Update the href to match the section ID
+  //   subMenu: [
+  //     { title: "Services One", href: "/service-1" },
+  //     { title: "Services Two", href: "/service-2" },
+  //     { title: "Service Details", href: "/service-details/1" },
+  //   ],
+  // },
+  // {
+  //   title: "Pages",
+  //   href: "#", 
+  //   subMenu: [
+  //     {
+  //       title: "Project Page",
+  //       href: "/project",
+  //       subMenu: [
+  //         { title: "Project", href: "/project" },
+  //         { title: "Project Details", href: "/project-details/1" },
+  //       ],
+  //     },
+  //     {
+  //       title: "Team Page",
+  //       href: "/team-1",
+  //       subMenu: [
+  //         { title: "Team One", href: "/team-1" },
+  //         { title: "Team Two", href: "/team-2" },
+  //         { title: "Team Details", href: "/team-details/1" },
+  //       ],
+  //     },
+  //     { title: "Pricing Page", href: "/pricing" },
+  //     { title: "FAQ'S", href: "/faq" },
+  //     { title: "Error Page", href: "/error" },
+  //   ],
+  // },
   {
     title: "Blog",
     href: "#blog",  // Update the href to match the section ID
@@ -122,6 +122,6 @@ export const menuItems = [
   },
   {
     title: "Contact Us",
-    href: "/contact",
+    href: "#contact",
   },
 ];

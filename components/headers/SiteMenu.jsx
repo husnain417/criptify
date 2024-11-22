@@ -88,8 +88,8 @@ export default function SiteMenu() {
               </Link>
             </div>
             <p className="text">
-              Rapidiously myocardinate cross-platform intellectual capital
-              model. Appropriately create interactive infrastructures
+            Cryptify is a secure platform offering easy-to-use solutions for managing digital assets and navigating the crypto world.
+
             </p>
           </div>
         </div>
