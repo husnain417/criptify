@@ -18,7 +18,7 @@ export default function Services() {
                 <Image src={service.icon} width={70} height={70} alt="icon" />
               </div>
               <h3 className="service-title">
-                <Link scroll={false} href={`/service-1`}>
+                <Link scroll={false} href={``}>
                   {service.title}
                 </Link>
               </h3>

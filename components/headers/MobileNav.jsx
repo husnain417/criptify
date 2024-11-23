@@ -10,55 +10,43 @@ export default function MobileNav() {
   const [activeParent, setActiveParent] = useState(-1);
   const [activeParent2, setActiveParent2] = useState(-1);
   const pathname = usePathname();
-  const isMenuActive = (menu = menuItems[3]) => {
-    let isActive = false;
-    if (menu.href !== "#") {
-      if (pathname.split("/")[1] == menu.href?.split("/")[1]) {
-        isActive = true;
+  
+  const handleScroll = (e, href) => {
+    e.preventDefault();
+    closeMobileMenu();
+    
+    // Only handle scroll for anchor links
+    if (href.startsWith('#')) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       }
     }
-    if (menu.subMenu) {
-      menu.subMenu.forEach((el) => {
-        if (el.href != "#") {
-          if (pathname.split("/")[1] == el.href?.split("/")[1]) {
-            isActive = true;
-          }
-        }
-        if (el.subMenu) {
-          el.subMenu.map((elm) => {
-            if (elm.href != "#") {
-              if (pathname.split("/")[1] == elm.href?.split("/")[1]) {
-                isActive = true;
-              }
-            }
-          });
-        }
-      });
-    }
-    return isActive;
   };
 
   useEffect(() => {
     closeMobileMenu();
   }, [pathname]);
+
   const menuAreaRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        mobileMenuRef.current && // Check if click is inside #mobileMenu
+        mobileMenuRef.current &&
         mobileMenuRef.current.contains(event.target) &&
-        menuAreaRef.current && // Check if click is outside .gt-menu-area
+        menuAreaRef.current &&
         !menuAreaRef.current.contains(event.target)
       ) {
         closeMobileMenu();
-        // Add your custom logic here
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -75,7 +63,7 @@ export default function MobileNav() {
           <i className="fal fa-times"></i>
         </button>
         <div className="mobile-logo">
-          <Link scroll={false} href="/">
+          <Link href="/">
             <Image
               alt="techo"
               src="/assets/img/logo2_dark.png"
@@ -91,22 +79,21 @@ export default function MobileNav() {
                 key={index}
                 className={item.subMenu ? "menu-item-has-children" : ""}
               >
-                <Link
-                  scroll={false}
-                  className={`${isMenuActive(item) ? "menuActive" : ""} `}
-                  href={item.href.includes("/") ? item.href : "#"}
-                  onClick={() =>
-                    setActiveParent((pre) => (pre == index ? -1 : index))
-                  }
+                <a
+                  href={item.href}
+                  onClick={(e) => {
+                    handleScroll(e, item.href);
+                    setActiveParent((pre) => (pre == index ? -1 : index));
+                  }}
                 >
                   {item.title}
-                  <span className="gt-mean-expand"></span>
-                </Link>
+                  {item.subMenu && <span className="gt-mean-expand"></span>}
+                </a>
                 {item.subMenu && (
                   <ul
                     className={`sub-menu ${
                       index == activeParent ? "active" : ""
-                    } `}
+                    }`}
                   >
                     {item.subMenu.map((subItem, subIndex) => (
                       <li
@@ -115,37 +102,33 @@ export default function MobileNav() {
                           subItem.subMenu ? "menu-item-has-children" : ""
                         }
                       >
-                        <Link
-                          scroll={false}
-                          className={`${
-                            isMenuActive(subItem) ? "menuActive" : ""
-                          }`}
-                          href={subItem.href.includes("/") ? subItem.href : "#"}
-                          onClick={() =>
+                        <a
+                          href={subItem.href}
+                          onClick={(e) => {
+                            handleScroll(e, subItem.href);
                             setActiveParent2((pre) =>
                               pre == index ? -1 : index
-                            )
-                          }
+                            );
+                          }}
                         >
                           {subItem.title}
-                        </Link>
+                        </a>
                         {subItem.subMenu && (
                           <ul
                             className={`sub-menu ${
                               index == activeParent2 ? "active" : ""
-                            } `}
+                            }`}
                           >
                             {subItem.subMenu.map((subSubItem, subSubIndex) => (
                               <li key={subSubIndex}>
-                                <Link
-                                  scroll={false}
-                                  className={`${
-                                    isMenuActive(subSubItem) ? "menuActive" : ""
-                                  }`}
+                                <a
                                   href={subSubItem.href}
+                                  onClick={(e) =>
+                                    handleScroll(e, subSubItem.href)
+                                  }
                                 >
                                   {subSubItem.title}
-                                </Link>
+                                </a>
                               </li>
                             ))}
                           </ul>
