@@ -1,4 +1,102 @@
 /* General Section Styles */
+.phone-input-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-select
+  {
+    margin-left: 20px !important;
+    margin-top: -10px !important;
+    z-index: 1000000 !important;
+  }
+
+  .platform-option {
+    display: flex;
+    align-items: center;
+  }
+  
+  .platform-option img {
+    margin-right: 8px; /* Adjust the value for desired spacing */
+  }
+  
+  .platform-name {
+    font-size: 14px; /* Optional: Adjust font size if needed */
+  }
+  
+  .platform-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+  
+
+  /* Make the buttons smaller */
+button.gt-btn {
+    font-size: 0.9rem; /* Smaller text size */
+    padding: 0.8rem 0.8rem; /* Reduced padding for a smaller button */
+  }
+  
+  /* Add space between buttons */
+  .button-group button {
+    margin-right: 10px; /* Add space between buttons */
+  }
+  
+  /* Optional: To ensure the last button doesn't have a right margin */
+  .button-group button:last-child {
+    margin-right: 0;
+  }
+  
+
+  .phone-field {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+
+  .phone-prefix {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 10px;
+  }
+  
+  .phone-prefix img {
+    display: block;
+    width: 20px;
+    height: auto;
+  }
+  
+  .divider {
+    width: 1px;
+    height: 20px;
+    background-color: #ccc;
+  }
+  
+  .country-code {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .phone-number {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
+  
+  .phone-number::placeholder {
+    color: #aaa;
+  }
+  
+  .input-error {
+    border-color: #e74c3c !important;
+  }
+  
+
 .lead-capture-section {
     padding: 50px 0;
 }

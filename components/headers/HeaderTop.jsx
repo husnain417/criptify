@@ -1,6 +1,80 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 
 export default function HeaderTop() {
+  useEffect(() => {
+    // Remove Google Translate cookies and set the language to French
+    const resetLanguageToFrench = () => {
+      // Clear existing cookies
+      document.cookie
+        .split(";")
+        .forEach((cookie) => {
+          const cookieName = cookie.split("=")[0].trim();
+          if (cookieName.startsWith("googtrans")) {
+            document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+          }
+        });
+
+      // Set cookie to force French language
+      document.cookie = "googtrans=/en/fr; path=/;";
+    };
+
+    // Load the Google Translate script
+    const loadGoogleTranslate = () => {
+      const existingScript = document.querySelector(
+        'script[src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"]'
+      );
+      if (!existingScript) {
+        const script = document.createElement("script");
+        script.src =
+          "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+
+      window.googleTranslateElementInit = () => {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "en", // Original language of your website
+            includedLanguages: "en,fr", // Languages you want to support
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE, // Layout style
+          },
+          "google_translate_element" // The container ID
+        );
+      };
+    };
+
+    // Clear cookies, set French language, and load the script
+    resetLanguageToFrench();
+    loadGoogleTranslate();
+  }, []);
+
+  useEffect(() => {
+    // Force the language to French after Google Translate initializes
+    const setLanguageToFrench = () => {
+      const iframe = document.querySelector("iframe.goog-te-menu-frame");
+      if (iframe) {
+        const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const frenchOption = innerDoc.querySelector('a[lang="fr"]');
+        if (frenchOption) {
+          frenchOption.click(); // Simulate a click to switch to French
+        }
+      }
+    };
+
+    // Wait for the iframe to load and apply the language setting
+    const intervalId = setInterval(() => {
+      const iframe = document.querySelector("iframe.goog-te-menu-frame");
+      if (iframe) {
+        setLanguageToFrench();
+        clearInterval(intervalId);
+      }
+    }, 500);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <div className="header-top-section style1 fix">
       <div className="container">
@@ -17,6 +91,12 @@ export default function HeaderTop() {
               <a href="tel:2086660112">+208-666-0112</a>
             </li>
           </ul>
+          <div
+            id="google_translate_element"
+            style={{
+              zIndex: 9999,
+            }}
+          ></div>
           <div className="top-right">
             <div className="social-icon d-flex align-items-center">
               <span>Follow Us:</span>

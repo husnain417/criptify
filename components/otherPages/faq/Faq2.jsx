@@ -10,7 +10,7 @@ export default function Faq2() {
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#faq5"
-            aria-expanded="true"
+            aria-expanded="false"
             aria-controls="faq5"
           >
             Is my data safe with you?
@@ -52,7 +52,7 @@ export default function Faq2() {
       <div className="accordion-item mb-3 wow fadeInUp" data-wow-delay=".7s">
         <h5 className="accordion-header">
           <button
-            className="accordion-button"
+            className="accordion-button collapsed"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#faq7"
@@ -64,7 +64,7 @@ export default function Faq2() {
         </h5>
         <div
           id="faq7"
-          className="accordion-collapse show"
+          className="accordion-collapse collapse"
           data-bs-parent="#accordion1"
         >
           <div className="accordion-body">
@@ -85,6 +85,15 @@ export default function Faq2() {
             Which platforms are eligible for the airdrop?
           </button>
         </h5>
+        <div
+          id="faq8"
+          className="accordion-collapse collapse"
+          data-bs-parent="#accordion1"
+        >
+          <div className="accordion-body">
+            After qualifying for the airdrop, you will receive instructions in your registered email to claim your reward. Ensure to follow the steps carefully to successfully redeem your incentive.
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ export default function Faq1() {
       <div className="accordion-item mb-3 wow fadeInUp" data-wow-delay=".3s">
         <h5 className="accordion-header">
           <button
-            className="accordion-button collapsed"
+            className="accordion-button"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#faq1"
@@ -18,11 +18,13 @@ export default function Faq1() {
         </h5>
         <div
           id="faq1"
-          className="accordion-collapse collapse"
+          className="accordion-collapse collapse show"
           data-bs-parent="#accordion"
         >
           <div className="accordion-body">
-            Yes, we prioritize your privacy. All your personal data is securely encrypted and protected using industry-standard security protocols to ensure your information remains safe.
+            Yes, we prioritize your privacy. All your personal data is securely
+            encrypted and protected using industry-standard security protocols
+            to ensure your information remains safe.
           </div>
         </div>
       </div>
@@ -45,14 +47,17 @@ export default function Faq1() {
           data-bs-parent="#accordion"
         >
           <div className="accordion-body">
-            To qualify for our airdrop or incentives, you must meet certain eligibility criteria. These include being a registered user and completing specific tasks or actions on the platform. Make sure to check the terms and conditions for full details.
+            To qualify for our airdrop or incentives, you must meet certain
+            eligibility criteria. These include being a registered user and
+            completing specific tasks or actions on the platform. Make sure to
+            check the terms and conditions for full details.
           </div>
         </div>
       </div>
       <div className="accordion-item mb-3 wow fadeInUp" data-wow-delay=".7s">
         <h5 className="accordion-header">
           <button
-            className="accordion-button"
+            className="accordion-button collapsed"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#faq3"
@@ -64,11 +69,14 @@ export default function Faq1() {
         </h5>
         <div
           id="faq3"
-          className="accordion-collapse show"
+          className="accordion-collapse collapse"
           data-bs-parent="#accordion"
         >
           <div className="accordion-body">
-            To redeem your airdrop or incentive entry, simply follow the instructions provided after you complete the required actions on the platform. Once you're eligible, your entry or incentive will be processed and delivered within the specified timeframe.
+            To redeem your airdrop or incentive entry, simply follow the
+            instructions provided after you complete the required actions on
+            the platform. Once you're eligible, your entry or incentive will be
+            processed and delivered within the specified timeframe.
           </div>
         </div>
       </div>
@@ -91,7 +99,10 @@ export default function Faq1() {
           data-bs-parent="#accordion"
         >
           <div className="accordion-body">
-            We support a variety of popular crypto platforms. Ensure your account is connected to the supported platforms listed in the terms, and follow the necessary steps to participate in the airdrop or incentive program.
+            We support a variety of popular crypto platforms. Ensure your
+            account is connected to the supported platforms listed in the terms
+            and follow the necessary steps to participate in the airdrop or
+            incentive program.
           </div>
         </div>
       </div>

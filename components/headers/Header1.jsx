@@ -20,11 +20,11 @@ export default function Header1() {
                   <Image
                       src="/assets/img/logo2.png"
                       alt="techo"
-                      width={150} /* Adjust to fit */
-                      height={40} /* Maintain aspect ratio */
+                      width={150} 
+                      height={40} 
                       style={{ objectFit: "contain" }} /* Ensures logo scales without distorting */
-                      priority={true} /* Optimizes logo loading for headers */
-                      className="header-logo-img" /* Optional for styling */
+                      priority={true} 
+                      className="header-logo-img" 
                     />
                   </Link>
                 </div>
@@ -58,7 +58,7 @@ export default function Header1() {
                   </button>
                   <Link
                     scroll={true}
-                    href={`#contact`}
+                    href={`#form`}
                     className="gt-btn gt-btn-icon"
                   >
                     GET IN TOUCH

@@ -20,10 +20,6 @@ export const menuItems = [
     href: "#faq",
   },
   {
-    title: "Blog",
-    href: "#blog",
-  },
-  {
     title: "Contact",
     href: "#contact",
   },

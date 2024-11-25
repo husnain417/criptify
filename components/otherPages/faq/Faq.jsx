@@ -34,7 +34,7 @@ export default function Faq() {
               />
             </span>
           </h5>
-          <h2 className="title text-center mb-50">Frequently Questions</h2>
+          <h2 className="title text-center mb-50">Frequently Asked Questions</h2>
         </div>
         <div className="row">
           <div className="col-lg-6">
