@@ -5,6 +5,11 @@
     flex-direction: column;
   }
 
+  .country-code
+  {
+    max-width: 60px !important;
+  }
+
   .input-select
   {
     margin-left: 20px !important;
