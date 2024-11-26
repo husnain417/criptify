@@ -1,9 +1,11 @@
-import { progressItems } from "@/data/skills";
 import React from "react";
 import Image from "next/image";
-import Progress from "@/components/common/Progress";
+import { cryptoContent } from "../../../data/guide";
 
 export default function Profits() {
+  const { title, subtitle, guideTitle, description, conclusion } =
+    cryptoContent;
+
   return (
     <section className="about-area">
       <div className="about-wrap style5">
@@ -20,7 +22,7 @@ export default function Profits() {
                       height="12"
                     />
                   </span>{" "}
-                  How to Make 300% Profit on Crypto{" "}
+                  {title}{" "}
                   <span>
                     <Image
                       alt="icon"
@@ -30,44 +32,17 @@ export default function Profits() {
                     />
                   </span>{" "}
                 </h5>
-                <h3 className="title text-start mb-30">
-                Maximize Your Crypto Profits: A Step-by-Step Guide
-                </h3>
+                <h3 className="title text-start mb-30">{subtitle}</h3>
               </div>
 
-              {/* Guide to Make 300% Profit on Crypto */}
+              {/* Guide Content */}
               <div className="crypto-guide">
-                <h3 className="title text-start mb-30">
-                  Guide: How to Make 300% Profit on Crypto
-                </h3>
-                <p className="text-start">
-                  Cryptocurrency can be a volatile and exciting investment. Here's a simple guide to help you make 300% profit:
-                </p>
-                <ol className="crypto-steps">
-                  <li>
-                    <strong>Step 1: Research and Choose the Right Crypto</strong>
-                    <p>Focus on promising new coins with solid technology and a growing community.</p>
-                  </li>
-                  <li>
-                    <strong>Step 2: Diversify Your Portfolio</strong>
-                    <p>Spread your investments across multiple cryptocurrencies to mitigate risk and maximize potential growth.</p>
-                  </li>
-                  <li>
-                    <strong>Step 3: Use Leverage and Margin Trading</strong>
-                    <p>If you're experienced, margin trading can help amplify your gains. Be cautious, as it can also increase losses.</p>
-                  </li>
-                  <li>
-                    <strong>Step 4: Stay Updated with Market News</strong>
-                    <p>Monitor cryptocurrency news to make informed decisions about your investments.</p>
-                  </li>
-                  <li>
-                    <strong>Step 5: Set Entry and Exit Points</strong>
-                    <p>Strategically time your buys and sells, setting clear profit and loss targets.</p>
-                  </li>
-                </ol>
-                <p className="text-start">
-                  By following these steps and being patient, you can maximize your chances of achieving substantial returns in the crypto market.
-                </p>
+                <h3 className="title text-start mb-30">{guideTitle}</h3>
+                <p className="text-start">{description}</p>
+                <p className="text-start">{conclusion}</p>
+                <a href="#form" className="gt-btn primary mt-3">
+                  Subscribe
+                </a>                           
               </div>
             </div>
 
@@ -93,7 +68,6 @@ export default function Profits() {
                   height="716"
                 />
               </div>
-
 
               <div className="about-thumb-box icon jump">
                 <Image

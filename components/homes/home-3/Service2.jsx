@@ -92,37 +92,10 @@ export default function Service2() {
               </p>
             </div>
 
-            <div className="urgency">
-              <p className="text" style={{ color: "#FF5733" }}>Hurry! Offer ends in:</p>
-              <div className="countdown" style={{ color: "#FF5733" }}>
-                <span className="time-box">{timeLeft.hours}h</span> :
-                <span className="time-box">{timeLeft.minutes}m</span> :
-                <span className="time-box">{timeLeft.seconds}s</span>
-              </div>
-              <p className="text" style={{ color: "#FF5733" }}>
-                Only 50 spots left for this exclusive opportunity!
-              </p>
-            </div>
-
-            <div className="checklist">
-              {features.map((feature, index) => (
-                <ul className="ps-0" key={index}>
-                  <li>
-                    <Image
-                      src={feature.icon}
-                      width={20}
-                      height={20}
-                      alt="icon"
-                    />
-                  </li>
-                  <li>{feature.description}</li>
-                </ul>
-              ))}
-            </div>
 
             {/* Link to Get Started */}
-            <Link scroll={true} className="gt-btn gt-btn-icon" href={`#form`}>
-              Get Started
+            <Link scroll={true} href="/airdrop" className="gt-btn gt-btn-icon">
+              View Aidrop Details
             </Link>
           </div>
         </div>

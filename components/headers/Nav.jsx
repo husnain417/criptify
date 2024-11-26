@@ -8,39 +8,37 @@ export default function Nav() {
   const pathname = usePathname();
 
   const isMenuActive = (menu) => {
-    let isActive = false;
-    if (menu.href !== "#") {
-      if (pathname.split("/")[1] == menu.href?.split("/")[1]) {
-        isActive = true;
-      }
-    }
-    return isActive;
+    // Simplify active menu detection
+    return pathname === menu.href || 
+           (menu.href.includes('#') && pathname === '/');
   };
 
-  // Handle both section scrolling and page navigation
   const handleClick = (e, href) => {
+    // If not on homepage and link is a section
+    if (href.includes('/#') && pathname !== '/') {
+      window.location.href = href;
+      return;
+    }
+
     // If it's a hash link (section navigation)
-    if (href.startsWith("#")) {
+    if (href.startsWith("/#") || href.startsWith("#")) {
       e.preventDefault();
-      const targetId = href.replace("#", "");
+      const targetId = href.split('#')[1];
       const element = document.getElementById(targetId);
       
       if (element) {
-        // Add smooth scrolling
         element.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
       }
     }
-    // For regular page navigation, let Link handle it
   };
 
-  // Add scroll spy functionality
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section[id]");
-      const scrollPosition = window.scrollY + 100; // Offset for header
+      const scrollPosition = window.scrollY + 100;
 
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
@@ -53,9 +51,9 @@ export default function Nav() {
         ) {
           // Find and update active menu item
           document.querySelectorAll(".main-menu a").forEach((link) => {
-            link.classList.remove("menuActive");
-            if (link.getAttribute("href") === `#${sectionId}`) {
-              link.classList.add("menuActive");
+            link.classList.remove("active");
+            if (link.getAttribute("href")?.endsWith(`#${sectionId}`)) {
+              link.classList.add("active");
             }
           });
         }
@@ -64,10 +62,9 @@ export default function Nav() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   const renderMenuItem = (item) => {
-    // If item has subMenu, render dropdown
     if (item.subMenu) {
       return (
         <ul className="sub-menu">
@@ -77,7 +74,7 @@ export default function Nav() {
                 scroll={false}
                 href={subItem.href}
                 onClick={(e) => handleClick(e, subItem.href)}
-                className={`${isMenuActive(subItem) ? "menuActive" : ""}`}
+                className={isMenuActive(subItem) ? "active" : ""}
               >
                 {subItem.title}
               </Link>
@@ -92,12 +89,15 @@ export default function Nav() {
   return (
     <>
       {menuItems.map((item, index) => (
-        <li key={index} className={item.subMenu ? "menu-item-has-children" : ""}>
+        <li 
+          key={index} 
+          className={item.subMenu ? "menu-item-has-children" : ""}
+        >
           <Link
             scroll={false}
             href={item.href}
             onClick={(e) => handleClick(e, item.href)}
-            className={`${isMenuActive(item) ? "menuActive" : ""}`}
+            className={isMenuActive(item) ? "active" : ""}
           >
             {item.title}
           </Link>

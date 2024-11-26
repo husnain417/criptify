@@ -1,4 +1,4 @@
-import Footer1 from "@/components/footers/Footer1";
+import Footer2 from "@/components/footers/Footer2";
 import Header1 from "@/components/headers/Header1";
 import HeaderTop from "@/components/headers/HeaderTop";
 
@@ -50,7 +50,7 @@ export default function Page() {
         <Map />
         <Cta />
       </main>
-      <Footer1 />
+      <Footer2 />
     </>
   );
 }

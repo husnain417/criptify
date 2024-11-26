@@ -1,26 +1,26 @@
 export const menuItems = [
   {
     title: "Home",
-    href: "#hero",
+    href: "/#hero",
   },
   {
     title: "About us",
-    href: "#about",
+    href: "/#about",
   },
   {
     title: "Features",
-    href: "#features",
+    href: "/#features",
   },
   {
     title: "Form",
-    href: "#form",
+    href: "/#form",
   },
   {
     title: "FAQ",
-    href: "#faq",
+    href: "/#faq",
   },
   {
     title: "Contact",
-    href: "#contact",
+    href: "/#contact",
   },
 ];
