@@ -45,77 +45,78 @@ export default function Page() {
 
   return (
     <>
-      <style jsx global>{`
-        /* Responsive Layout Styles */
-        .airdrop-container {
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          margin-top: 100px;
-          margin-bottom: 100px;
-          margin-left: 30px;
-        }
+<style jsx global>{`
+  /* Responsive Layout Styles */
+  .airdrop-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 30px;
+  }
 
-        .airdrop-content {
-          flex: 1;
-          padding-right: 20px;
-          width: 50%;
-        }
+  .airdrop-content {
+    flex: 1;  /* This ensures the text takes up half of the available space */
+    padding-right: 20px;
+    width: 50%; /* Each part takes up 50% width */
+  }
 
-        .airdrop-image {
-          flex: 1;
-          text-align: center;
-          width: 50%;
-        }
+  .airdrop-image {
+    flex: 1;  /* This ensures the image takes up half of the available space */
+    text-align: center;
+    width: 50%;
+  }
 
-        /* Animation Keyframes */
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
+  /* Animation Keyframes */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
 
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-          perspective: 1000px;
-        }
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+    perspective: 1000px;
+  }
 
-        /* Responsive Adjustments */
-        @media screen and (max-width: 958px) {
-          .airdrop-container {
-            flex-direction: column;
-            margin-left: 15px;
-            margin-right: 15px;
-          }
+  /* Responsive Adjustments */
+  @media screen and (max-width: 958px) {
+    .airdrop-container {
+      flex-direction: column;  /* Stack the content vertically on small screens */
+      margin-left: 15px;
+      margin-right: 15px;
+    }
 
-          .airdrop-content,
-          .airdrop-image {
-            width: 100%;
-            padding-right: 0;
-            margin-bottom: 30px;
-            margin-left: -13px !important;
-          }
+    .airdrop-content,
+    .airdrop-image {
+      width: 100%;  /* Make both content and image take full width on small screens */
+      padding-right: 0;
+      margin-bottom: 30px;
+      margin-left: -13px !important;
+    }
 
-          .airdrop-image {
-            order: -1; /* Move image above text on small screens */
-          }
+    .airdrop-image {
+      order: -1;  /* Move image above text on small screens */
+    }
+  }
 
-          @media screen and (max-width: 992px) {
-            .breadcumb {
-              padding-top: 140px !important; /* Ensure enough space below the header */
-              padding-bottom: 10px !important;
-            }
+  @media screen and (max-width: 992px) {
+    .breadcumb {
+      padding-top: 100px !important;  /* Ensure enough space below the header */
+      padding-bottom: 10px !important;
+    }
 
-            .airdrop-image {
-              width: 90%;
-            }
-          
-            .page-heading h1 {
-              font-size: 26px; /* Adjust font size for smaller screens */
-              text-align: center; /* Center the heading */
-            }
-          }
-        }
-      `}</style>
+    .airdrop-image {
+      width: 100%;
+    }
+  
+    .page-heading h1 {
+      font-size: 26px;  /* Adjust font size for smaller screens */
+      text-align: center;  /* Center the heading */
+    }
+  }
+`}</style>
+
 
       <HeaderTop />
       <Header1 />
