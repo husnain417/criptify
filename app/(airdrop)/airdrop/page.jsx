@@ -4,6 +4,7 @@ import Image from "next/image";
 import Footer2 from "@/components/footers/Footer2";
 import Header1 from "@/components/headers/Header1";
 import HeaderTop from "@/components/headers/HeaderTop";
+import drop from '../../../public/assets/img/airdrop.jpeg'
 import Link from "next/link";
 
 export default function Page() {
@@ -42,13 +43,80 @@ export default function Page() {
     return () => clearInterval(intervalId);
   }, []);
 
-  // Helper function to pad single digits with a leading zero
-  const formatTime = (time) => {
-    return time.toString().padStart(2, '0');
-  };
-
   return (
     <>
+      <style jsx global>{`
+        /* Responsive Layout Styles */
+        .airdrop-container {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          margin-top: 100px;
+          margin-bottom: 100px;
+          margin-left: 30px;
+        }
+
+        .airdrop-content {
+          flex: 1;
+          padding-right: 20px;
+          width: 50%;
+        }
+
+        .airdrop-image {
+          flex: 1;
+          text-align: center;
+          width: 50%;
+        }
+
+        /* Animation Keyframes */
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-20px); }
+        }
+
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+          perspective: 1000px;
+        }
+
+        /* Responsive Adjustments */
+        @media screen and (max-width: 958px) {
+          .airdrop-container {
+            flex-direction: column;
+            margin-left: 15px;
+            margin-right: 15px;
+          }
+
+          .airdrop-content,
+          .airdrop-image {
+            width: 100%;
+            padding-right: 0;
+            margin-bottom: 30px;
+            margin-left: -13px !important;
+          }
+
+          .airdrop-image {
+            order: -1; /* Move image above text on small screens */
+          }
+
+          @media screen and (max-width: 992px) {
+            .breadcumb {
+              padding-top: 140px !important; /* Ensure enough space below the header */
+              padding-bottom: 10px !important;
+            }
+
+            .airdrop-image {
+              width: 90%;
+            }
+          
+            .page-heading h1 {
+              font-size: 26px; /* Adjust font size for smaller screens */
+              text-align: center; /* Center the heading */
+            }
+          }
+        }
+      `}</style>
+
       <HeaderTop />
       <Header1 />
       <main className="main position-relative" id="mains">
@@ -72,17 +140,24 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <section className="airdrop-details" style={{ marginTop: "100px", marginBottom: "100px", marginLeft: "30px" }}>
-          <div className="container">
+        <section className="airdrop-details">
+          <div className="container airdrop-container">
+            {/* Text Content */}
             <div className="airdrop-content">
               <h1>Get 5000 Free CryptoX Tokens!</h1>
               <p>
-                Don't miss out on this limited-time opportunity to earn 5000 free CryptoX tokens. Join our airdrop campaign now and start earning rewards!
+                Don't miss out on this limited-time opportunity to earn 5000 free CryptoX
+                tokens. Join our airdrop campaign now and start earning rewards!
               </p>
 
               <div className="urgency">
-                <p style={{ fontWeight: "bold", fontSize: "20px" }}>Hurry! Offer ends in:</p>
-                <div className="countdown" style={{ color: "red", fontSize: "30px", fontWeight: "bold" }}>
+                <p style={{ fontWeight: "bold", fontSize: "20px" }}>
+                  Hurry! Offer ends in:
+                </p>
+                <div
+                  className="countdown"
+                  style={{ color: "red", fontSize: "30px", fontWeight: "bold" }}
+                >
                   <span className="time-box">{timeLeft.hours}h</span> :
                   <span className="time-box">{timeLeft.minutes}m</span> :
                   <span className="time-box">{timeLeft.seconds}s</span>
@@ -90,7 +165,8 @@ export default function Page() {
               </div>
 
               <p style={{ color: "red", fontWeight: "bold", fontSize: "20px" }}>
-                Only <span style={{ fontSize: "25px" }}>50</span> spots are available. Act now to secure your spot and get your free tokens before it's too late!
+                Only <span style={{ fontSize: "25px" }}>50</span> spots are available. Act now
+                to secure your spot and get your free tokens before it's too late!
               </p>
 
               {/* Additional Details About Airdrop */}
@@ -108,6 +184,19 @@ export default function Page() {
                   Claim My Tokens Now!
                 </a>
               </div>
+            </div>
+
+            {/* Image with Animation */}
+            <div className="airdrop-image">
+              <Image 
+                src={drop} 
+                alt="Airdrop" 
+                className="animate-float"
+                style={{ 
+                  maxWidth: "100%", 
+                  height: "auto" 
+                }} 
+              />
             </div>
           </div>
         </section>
