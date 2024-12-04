@@ -321,17 +321,18 @@ button.gt-btn {
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background 0.5s ease, transform 0.3s ease;
 }
 
 .choice-button:hover {
-  background: black;
+  background: linear-gradient(90deg, #2f8eff 0%, #a62ee3 123.82%);
   transform: scale(1.05);
 }
 
+
 .choice-button.selected {
   background: black; /* Keep the selected button black */
-  transform: scale(1); /* Prevent scaling on selection */
+  transform: scale(1.05); /* Prevent scaling on selection */
 }
 
 .completion-message {
