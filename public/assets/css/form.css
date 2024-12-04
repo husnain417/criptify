@@ -12,6 +12,7 @@
 
   .input-select
   {
+    max-height: 100px !important; 
     margin-left: 20px !important;
     margin-top: -10px !important;
     z-index: 1000000 !important;
@@ -51,6 +52,23 @@ button.gt-btn {
   /* Optional: To ensure the last button doesn't have a right margin */
   .button-group button:last-child {
     margin-right: 0;
+  }
+
+  .progress-bar-wrapper.small {
+    width: 80px;
+    height: 80px;
+    margin-top: -15px;
+    position: absolute;
+    right: 10px;
+    top: 2px;
+  }  
+
+  .cont-info
+  {
+    display: flex;
+    gap: 2rem;
+    position:relative;
+    margin-bottom: 2rem;
   }
   
 
@@ -135,7 +153,7 @@ button.gt-btn {
 /* Form Styles */
 .form-container {
     background-color: #f9f9f9;
-    padding: 20px;
+    padding: 30px 20px;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -193,6 +211,11 @@ button.gt-btn {
 
 .gdpr-notice a:hover {
     text-decoration: underline;
+}
+
+.btn-sec
+{
+  width: 20px !important;
 }
 
 /* Responsive Styles */
@@ -263,4 +286,121 @@ button.gt-btn {
     .gdpr-notice {
         font-size: 0.75rem;
     }
+}
+
+/* Secondary Form Styling */
+.secondary-form-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 100;
+}
+
+.secondary-form-container .form-completed-container {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.choice-button {
+  background: linear-gradient(90deg, #384bff 0%, #b42af3 123.82%);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  color: white;
+  border: none;
+  margin-left: 1rem;
+  margin-top: -1rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.choice-button:hover {
+  background: black;
+  transform: scale(1.05);
+}
+
+.choice-button.selected {
+  background: black; /* Keep the selected button black */
+  transform: scale(1); /* Prevent scaling on selection */
+}
+
+.completion-message {
+  background: linear-gradient(90deg, #384bff 0%, #b42af3 123.82%);
+  -webkit-background-clip: text; /* Apply the gradient to the text */
+  background-clip: text; /* Standard syntax for background-clip */
+  color: transparent; /* Make the text itself transparent so the gradient shows */
+}
+
+.down
+{
+  margin-top: 0.9rem !important;
+}
+
+.plat
+{
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .g
+{
+  margin-top: 20px !important;
+}
+}
+.selected-platforms {
+  margin-top: 1rem;
+}
+
+.selected-platforms ul {
+  list-style: none;
+  padding: 0;
+}
+
+.platform-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.platform-item img {
+  margin-right: 0.5rem;
+}
+
+.platform-item span {
+  font-weight: 600;
+}
+
+
+
+.input-select .css-1s2u09g-control {
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+}
+
+.input-group {
+  position: relative;
+  overflow: visible; /* Ensure the container doesn't clip the dropdown */
+}
+
+.form3
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-cont
+{
+  display: flex;
+  gap: 1rem;
 }
