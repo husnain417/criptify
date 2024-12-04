@@ -102,7 +102,6 @@ export default function Form() {
     }
   
     try {
-      // Wrap the submission data in a structure that matches formatSheetData
       const stepData = {
         step1: {
           name: formData.name,
@@ -119,14 +118,13 @@ export default function Form() {
       };
   
       console.log(stepData);
-      // Send data to Google Sheets
       await appendDataToSheet(stepData);
   
-      // Handle successful submission
+      // Explicitly set currentStep to 4
+      setCurrentStep(4);
       setIsSubmitted(true);
       setShowConfetti(true);
   
-      // Reset form after 4 seconds
       setTimeout(() => {
         setIsSubmitted(false);
         setShowConfetti(false);
@@ -144,7 +142,6 @@ export default function Form() {
       }, 4000); 
     } catch (error) {
       console.error('Submission error:', error);
-      // Optionally show an error message to the user
     }
   };
   // const handleSubmit = (e) => {
@@ -416,16 +413,25 @@ export default function Form() {
               <label className="plat">Select your platform(s):</label>
               <Select
                 options={platformOptions}
-                value={formData.platforms} // Pass the array of selected platforms
+                value={formData.platforms}
                 onChange={(selected) =>
                   handleInputChange({
                     target: { name: "platforms", value: selected || [] },
                   })
                 }
-                isMulti // Enable multi-select
+                isMulti
                 placeholder="Select one or more platforms"
-                className={`input-select ${errors.platforms ? "input-error" : ""}`}
+                className={`input-select select-imp ${errors.platforms ? "input-error" : ""}`}
+                styles={{
+                  menu: (provided) => ({
+                    ...provided,
+                    zIndex: 1000, // Ensure the dropdown is on top
+                  }),
+                  menuPortal: (base) => ({ ...base, zIndex: 1000 }),
+                }}
+                menuPortalTarget={document.body} // Attach the dropdown to the body
               />
+
               </div>
               {errors.platforms && <div className="error-message">{errors.platforms}</div>}
 
