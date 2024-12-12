@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import "../../../public/assets/css/form.css";
 import Select from "react-select";
@@ -8,11 +8,11 @@ import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { appendDataToSheet } from "./googleSheets"; 
+import { appendDataToSheet, RowIdManager } from "./googleSheets"; 
 
 export default function Form() {
   const [currentStep, setCurrentStep] = useState(1);
-
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: { countryCode: "+33", number: "" },
@@ -25,6 +25,8 @@ export default function Form() {
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { width, height } = useWindowSize();
+  const [nextPressCount, setNextPressCount] = useState(0);
+  const [timer, setTimer] = useState(null); // Store the timer for 1 minute
   const [showConfetti, setShowConfetti] = useState(false);
 
   const calculateProgress = () => {
@@ -86,8 +88,46 @@ export default function Form() {
 
   const handleNextStep = async (e) => {
     e.preventDefault();
-      setCurrentStep((prev) => prev + 1);
+    setNextPressCount(prev => prev + 1);
+  
+    const stepData = {
+      step1: {
+        name: formData.name,
+        phone: formData.phone,
+      },
+      step2: {
+        email: formData.email,
+      },
+    };
+  
+    if (nextPressCount !== 0) {
+      const timeout = setTimeout(async () => {
+        try {
+          await appendDataToSheet(stepData);
+          console.log("Data appended automatically.");
+          setNextPressCount[0];
+          
+          setFormData({
+            name: "",
+            phone: { countryCode: "+33", number: "" },
+            email: "",
+            usesCrypto: "",
+            platform: "",
+            platforms: [],
+            otherPlatform: "",
+          });
+          setCurrentStep(1);
+          setErrors({});
+        } catch (error) {
+          console.error("Error appending data:", error);
+        }
+      }, 60000);
+  
+      setTimer(timeout);
     }
+  
+    setCurrentStep(prev => prev + 1);
+  };
   const handlePreviousStep = () => {
     setCurrentStep((prev) => prev - 1);
   };
@@ -100,7 +140,8 @@ export default function Form() {
       setErrors(formErrors);
       return;
     }
-  
+    setIsLoading(true);
+
     try {
       const stepData = {
         step1: {
@@ -116,15 +157,18 @@ export default function Form() {
           otherPlatform: formData.otherPlatform
         }
       };
-  
+
       console.log(stepData);
       await appendDataToSheet(stepData);
-  
+      setIsLoading(false);
+
       // Explicitly set currentStep to 4
       setCurrentStep(4);
       setIsSubmitted(true);
       setShowConfetti(true);
-  
+
+      clearTimeout(timer);
+
       setTimeout(() => {
         setIsSubmitted(false);
         setShowConfetti(false);
@@ -139,43 +183,12 @@ export default function Form() {
         });
         setErrors({}); 
         setCurrentStep(1);
-      }, 4000); 
+      }, 5000); 
     } catch (error) {
       console.error('Submission error:', error);
+      setIsLoading(false); 
     }
   };
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const step3Errors = validateStep3();
-  //   if (Object.keys(step3Errors).length > 0) {
-  //     setErrors(step3Errors);
-  //   } else {
-  //     console.log("Submitted Data:", {
-  //       ...formData,
-  //       platforms: formData.usesCrypto === "Yes" 
-  //         ? (formData.platforms || []).map(p => p.value) 
-  //         : [] // Empty array if not using crypto
-  //     });
-  //     setIsSubmitted(true);
-  //     setShowConfetti(true);
-  //     setCurrentStep(4);
-
-  //     setTimeout(() => {
-  //       setIsSubmitted(false);
-  //       setShowConfetti(false);
-  //       setCurrentStep(1);
-  //       setFormData({
-  //         name: "",
-  //         phone: { countryCode: "+33", number: "" },
-  //         email: "",
-  //         usesCrypto: "",
-  //         platform: "",
-  //         otherPlatform: "",
-  //       });
-  //       setErrors({}); 
-  //     }, 4000); 
-  //   }
-  // };
 
   const platformOptions = [
     { value: "Binance", label: (
@@ -486,6 +499,12 @@ export default function Form() {
               </div>
             </form>
           )}
+
+      {isLoading && (
+        <div className="spinner-overlay">
+          <div className="spinner"></div>
+        </div>
+      )}
 
           {currentStep === 4 && (
             <div className="form-completed-container centered-completion">

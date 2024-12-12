@@ -15,7 +15,6 @@
     max-height: 100px !important; 
     margin-left: 20px !important;
     margin-top: -10px !important;
-    z-index: 1000000 !important;
   }
 
   .platform-option {
@@ -323,7 +322,7 @@ button.gt-btn {
   cursor: pointer;
   transition: background 0.5s ease, transform 0.3s ease;
 }
-
+ 
 .choice-button:hover {
   background: linear-gradient(90deg, #2f8eff 0%, #a62ee3 123.82%);
   transform: scale(1.05);
@@ -338,8 +337,8 @@ button.gt-btn {
 .completion-message {
   background: linear-gradient(90deg, #384bff 0%, #b42af3 123.82%);
   -webkit-background-clip: text; /* Apply the gradient to the text */
-  background-clip: text; /* Standard syntax for background-clip */
-  color: transparent; /* Make the text itself transparent so the gradient shows */
+  background-clip: text; 
+  color: transparent; 
 }
 
 .down
@@ -404,4 +403,32 @@ button.gt-btn {
 {
   display: flex;
   gap: 1rem;
+}
+
+
+.spinner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #8139FA;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
