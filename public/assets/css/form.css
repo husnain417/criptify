@@ -290,6 +290,19 @@ button.gt-btn {
     }
 }
 
+@media (max-width: 395px) {
+  .step-title {
+    font-size: 1rem;
+  }
+
+  .title3step
+  {
+    font-size: 0.8rem;
+  }
+
+}
+
+
 /* Secondary Form Styling */
 .secondary-form-container {
   position: absolute;
@@ -419,7 +432,7 @@ button.gt-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 10;
 }
 
 .spinner {

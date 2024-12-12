@@ -1,0 +1,7 @@
+@media (max-width: 576px) {
+    .title1,.title2,.title3
+    {
+        font-size: 60px !important;
+    }
+
+}

@@ -385,7 +385,7 @@ export default function Form() {
           {currentStep === 3 && (
             <form onSubmit={handleSubmit}>
               <div className="cont-info">
-                <h4 className="step-title">3. Crypto Platforms</h4>
+                <h4 className="step-title title3step">3. Crypto Platforms</h4>
                 <div className="progress-bar-wrapper small">
                   <CircularProgressbar
                     value={calculateProgress()}

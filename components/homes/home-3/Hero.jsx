@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import ModalVideo from "react-modal-video";
+import '../../../public/assets/css/hero.css'
 
 export default function Hero() {
   const [isOpen, setOpen] = useState(false);
