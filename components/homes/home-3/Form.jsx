@@ -221,7 +221,7 @@ export default function Form() {
     },
     { value: "Huobi", label: (
         <div className="platform-option">
-          <Image src="/assets/img/houbi.png" alt="Huobi" width={20} height={20} />
+          <Image src="/assets/img/huobi.png" alt="Huobi" width={20} height={20} />
           <span className="platform-name">Huobi</span>
         </div>
       )
