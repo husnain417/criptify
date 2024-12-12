@@ -181,12 +181,6 @@ export default function Hero() {
             data-tilt=""
             data-tilt-max={20}
           >
-            <Image
-              alt="shape"
-              src="/assets/img/hero/heroThumb3_1.png"
-              width="277"
-              height="471"
-            />
           </div>
           <div
             className="thumb2 d-xxl-block d-none wow fadeInRight"
@@ -194,12 +188,6 @@ export default function Hero() {
             data-tilt=""
             data-tilt-max={17}
           >
-            <Image
-              alt="shape"
-              src="/assets/img/hero/heroThumb3_2.png"
-              width="277"
-              height="470"
-            />
           </div>
           <div className="container">
             <div className="row">
