@@ -458,3 +458,28 @@ button.gt-btn {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.lead-capture-section {
+  opacity: 0; /* Hidden initially */
+  transform: translateY(30px); /* Start slightly below */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.lead-capture-section.animate-up {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Reset to original position */
+}
+
+
+.benefits-listform
+{
+  display: flex;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .benefits-listform
+  {
+    flex-direction: column;
+  }
+}

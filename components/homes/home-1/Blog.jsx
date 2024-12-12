@@ -1,3 +1,4 @@
+"use client"
 import { blogCards } from "@/data/blogs";
 import React from "react";
 import Link from "next/link";
@@ -51,57 +52,65 @@ export default function Blog() {
           </div>
           <div className="blog-card-wrap style1">
             {blogCards.map((card, index) => (
-              <div
-                className="blog-card style1 img-shine wow fadeInUp"
-                data-wow-delay={card.delay}
+              <Link 
+                href={`/details`} 
                 key={index}
+                className="blog-card-link"
               >
-                <div className="blog-card-thumb style1">
-                  <Image
-                    src={card.thumb}
-                    width={322}
-                    height={216}
-                    alt="thumb"
-                  />
-                </div>
-                <div className="blog-card-body">
-                  <div className="tag-cloud">
-                    {card.meta.map((metaItem, metaIndex) => (
-                      <div className="meta" key={metaIndex}>
-                        <span className="icon">
-                          <Image
-                            src={metaItem.icon}
-                            width={20}
-                            height={20}
-                            alt="icon"
-                          />
-                        </span>
-                        <span className="text">{metaItem.text}</span>
-                      </div>
-                    ))}
+                <div
+                  className="blog-card style1 img-shine wow fadeInUp cursor-pointer"
+                  data-wow-delay={card.delay}
+                >
+                  <div className="blog-card-thumb style1">
+                    <Image
+                      src={card.thumb}
+                      width={322}
+                      height={216}
+                      alt="thumb"
+                    />
                   </div>
-                  <h3 className="blog-title style1">
-                    <Link scroll={false} href={``}>
+                  <div className="blog-card-body">
+                    <div className="tag-cloud">
+                      {card.meta.map((metaItem, metaIndex) => (
+                        <div className="meta" key={metaIndex}>
+                          <span className="icon">
+                            <Image
+                              src={metaItem.icon}
+                              width={20}
+                              height={20}
+                              alt="icon"
+                            />
+                          </span>
+                          <span className="text">{metaItem.text}</span>
+                        </div>
+                      ))}
+                    </div>
+                    <h3 className="blog-title style1">
                       {card.title}
-                    </Link>
-                  </h3>
-                  <div className="btn-wrapper">
-                    <Link scroll={false} href={``}>
-                      Read More
-                      <Image
-                        alt="icon"
-                        width="16"
-                        height="16"
-                        src="/assets/img/icon/arrowIconDark.png"
-                      />
-                    </Link>
-                  </div>
-                  <div className="calendar">
-                    <div className="date">{card.date}</div>
-                    <div className="month">{card.month}</div>
+                    </h3>
+                    {card.content && (
+                      <p className="blog-content text-muted mb-3">
+                        {card.content}
+                      </p>
+                    )}
+                    <div className="btn-wrapper">
+                      <span className="read-more-btn">
+                        Read More
+                        <Image
+                          alt="icon"
+                          width="16"
+                          height="16"
+                          src="/assets/img/icon/arrowIconDark.png"
+                        />
+                      </span>
+                    </div>
+                    <div className="calendar">
+                      <div className="date">{card.date}</div>
+                      <div className="month">{card.month}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

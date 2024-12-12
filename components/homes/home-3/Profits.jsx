@@ -3,8 +3,7 @@ import Image from "next/image";
 import { cryptoContent } from "../../../data/guide";
 
 export default function Profits() {
-  const { title, subtitle, guideTitle, description, conclusion } =
-    cryptoContent;
+  const { title, subtitle, guideTitle, description, benefits, persuasiveMessage, conclusion } = cryptoContent;
 
   return (
     <section className="about-area">
@@ -39,10 +38,25 @@ export default function Profits() {
               <div className="crypto-guide">
                 <h3 className="title text-start mb-30">{guideTitle}</h3>
                 <p className="text-start">{description}</p>
-                <p className="text-start">{conclusion}</p>
+
+                {/* Benefits List */}
+                <ul className="benefits-list text-start">
+                  {benefits.map((benefit, index) => (
+                    <li key={index} className="mb-2">
+                      <strong style={{ color: "#673EFA" }}>✔</strong> {benefit}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Persuasive Message */}
+                <p className="text-start mt-4" style={{ fontStyle: "italic", color: "#333" }}>
+                  {persuasiveMessage}
+                </p>
+
+                {/* Subscribe Button */}
                 <a href="#form" className="gt-btn primary mt-3">
                   Subscribe
-                </a>                           
+                </a>
               </div>
             </div>
 

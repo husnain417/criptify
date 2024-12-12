@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
 import Image from "next/image";
+import './blogdetail.css'
 
 export default function BlogDetails({ blogItem }) {
   return (
@@ -15,10 +16,8 @@ export default function BlogDetails({ blogItem }) {
                 <div className="single-blog-post">
                   <div
                     className="post-featured-thumb"
-                    data-bg-src=""
                     style={{
-                      backgroundImage:
-                        "url(/assets/img/blog/blogCardThumb3_1.png)",
+                      backgroundImage: `url(${blogItem.thumb})`,
                     }}
                   />
                   <div className="post-content">
@@ -28,10 +27,7 @@ export default function BlogDetails({ blogItem }) {
                     >
                       <li>
                         <i className="fa-light fa-user" />
-                        By Admin
-                      </li>
-                      <li>
-                        <i className="fa-light fa-comments" />2 Comments
+                        By Criptify Team
                       </li>
                       <li>
                         <Image
@@ -40,42 +36,24 @@ export default function BlogDetails({ blogItem }) {
                           width="20"
                           height="20"
                         />
-                        IT Services
+                        {blogItem.meta[1].text}
                       </li>
                     </ul>
                     <h3 className="wow fadeInUp" data-wow-delay=".4s">
                       {blogItem.title}
                     </h3>
                     <p className="mb-3 wow fadeInUp" data-wow-delay=".6s">
-                      Consectetur adipisicing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore of magna aliqua. Ut enim ad
-                      minim veniam, made of owl the quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea dolor commodo
-                      consequat. Duis aute irure and dolor in reprehenderit.
+                      {blogItem.content}
                     </p>
-                    <p className="mb-3 wow fadeInUp" data-wow-delay=".8s">
-                      The is ipsum dolor sit amet consectetur adipiscing elit.
-                      Fusce eleifend porta arcu In hac habitasse the is platea
-                      augue thelorem turpoi dictumst. In lacus libero faucibus
-                      at malesuada sagittis placerat eros sed istincidunt augue
-                      ac ante rutrum sed the is sodales augue consequat.
-                    </p>
-                    <p className="wow fadeInUp" data-wow-delay="1s">
-                      Nulla facilisi. Vestibulum tristique sem in eros eleifend
-                      imperdiet. Donec quis convallis neque. In id lacus
-                      pulvinar lacus, eget vulputate lectus. Ut viverra bibendum
-                      lorem, at tempus nibh mattis in. Sed a massa eget lacus
-                      consequat auctor.
-                    </p>
+                    {/* Add more detailed content sections as needed */}
                     <div
                       className="hilight-text mt-4 mb-4 wow fadeInUp"
                       data-wow-delay=".8s"
                     >
                       <p>
-                        Pellentesque sollicitudin congue dolor non aliquam.
-                        Morbi volutpat, nisi vel ultricies urnacondimentum,
-                        sapien neque lobortis tortor, quis efficitur mi ipsum eu
-                        metus. Praesent eleifend orci sit amet est vehicula.
+                        Explore the depths of {blogItem.title} and uncover 
+                        insights that can transform your understanding of 
+                        cryptocurrency and blockchain technologies.
                       </p>
                       <svg
                         width={36}
@@ -94,99 +72,32 @@ export default function BlogDetails({ blogItem }) {
                         />
                       </svg>
                     </div>
-                    <p className="mt-4 mb-5 wow fadeInUp" data-wow-delay="1s">
-                      Lorem ipsum dolor sit amet consectetur adipiscing elit Ut
-                      et massa mi. Aliquam in hendrerit urna. Pellentesque sit
-                      amet sapien fringilla, mattis ligula consectetur, ultrices
-                      mauris. Maecenas vitae mattis tellus. Nullam quis
-                      imperdiet augue. Vestibulum auctor ornare leo, non
-                      suscipit magna interdum eu. Curabitur pellentesque nibh
-                      nibh, at maximus ante fermentum sit amet. Pellentesque
-                      commodo lacus at sodales sodales. Quisque sagittis orci ut
-                      diam condimentum, vel euismod erat placerat. In iaculis
-                      arcu eros.
-                    </p>
-                    <div className="row g-4 wow fadeInUp" data-wow-delay="1s">
-                      <div className="col-lg-6">
-                        <div className="details-image">
-                          <Image
-                            alt="img"
-                            src="/assets/img/blog/blogCardThumb3_2.png"
-                            width="710"
-                            height="430"
-                          />
+                    <div className="row tag-share-wrap mt-4 mb-30 wow fadeInUp" data-wow-delay=".8s">
+                      <div className="col-lg-8 col-12">
+                        <div className="tagcloud">
+                          <h6 className="d-inline me-2">Tags:</h6>
+                          {blogItem.meta.map((meta, index) => (
+                            <a href="#" key={index}>{meta.text}</a>
+                          ))}
                         </div>
                       </div>
-                      <div className="col-lg-6">
-                        <div className="details-image">
-                          <Image
-                            alt="img"
-                            src="/assets/img/blog/blogCardThumb3_3.png"
-                            width="710"
-                            height="430"
-                          />
+                      <div
+                        className="col-lg-4 col-12 mt-3 mt-lg-0 text-lg-end wow fadeInUp"
+                        data-wow-delay="1.2s"
+                      >
+                        <div className="social-share">
+                          <span className="me-3">Share:</span>
+                          <a href="#"><i className="fab fa-facebook-f" /></a>
+                          <a href="#"><i className="fab fa-twitter" /></a>
+                          <a href="#"><i className="fab fa-linkedin-in" /></a>
+                          <a href="#"><i className="fab fa-youtube" /></a>
                         </div>
                       </div>
                     </div>
-                    <p className="pt-5 wow fadeInUp" data-wow-delay="1.2s">
-                      Consectetur adipisicing elit, sed do eiusmod tempor
-                      incididunt ut labore et dolore of magna aliqua. Ut enim ad
-                      minim veniam, made of owl the quis nostrud exercitation
-                      ullamco laboris nisi ut aliquip ex ea dolor commodo
-                      consequat. Duis aute irure and dolor in
-                      reprehenderit.Consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore of magna aliqua. Ut
-                      enim ad minim veniam, made of owl the quis nostrud
-                      exercitation ullamco laboris nisi ut aliquip ex ea dolor
-                      commodo consequat. Duis aute irure and dolor in
-                      reprehenderit.
-                    </p>
                   </div>
-                </div>
-                <div
-                  className="row tag-share-wrap mt-4 mb-30 wow fadeInUp"
-                  data-wow-delay=".8s"
-                >
-                  <div className="col-lg-8 col-12">
-                    <div className="tagcloud">
-                      <h6 className="d-inline me-2">Tags:</h6>
-                      <a href={`#`}>News</a>
-                      <a href={`#`}>business</a>
-                      <a href={`#`}>marketing</a>
-                    </div>
-                  </div>
-                  <div
-                    className="col-lg-4 col-12 mt-3 mt-lg-0 text-lg-end wow fadeInUp"
-                    data-wow-delay="1.2s"
-                  >
-                    <div className="social-share">
-                      <span className="me-3">Share:</span>
-                      <a href="#">
-                        <i className="fab fa-facebook-f" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-twitter" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-linkedin-in" />
-                      </a>
-                      <a href="#">
-                        <i className="fab fa-youtube" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <Comments />
-                <div
-                  className="comment-form-wrap pt-5 wow fadeInUp"
-                  data-wow-delay="1.2s"
-                >
-                  <h3>Leave a comments</h3>
-                  <CommentForm />
                 </div>
               </div>
             </div>
-            <Sidebar />
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef  } from "react";
 import Image from "next/image";
 import "../../../public/assets/css/form.css";
 import Select from "react-select";
@@ -235,11 +235,39 @@ export default function Form() {
     },
     { value: "Other", label: "Other" }
   ];
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
   
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 } // Adjust the threshold as needed
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
 
   return (
-    <section className="lead-capture-section container-space fix">
-      <div className="container">
+    <section
+      className={`lead-capture-section container-space fix ${
+        isVisible ? "animate-up" : ""
+      }`}
+      ref={sectionRef}
+    >      <div className="container">
         <div className="section-header mx-auto">
           <h5 className="subheading text-center">
             <span className="me-2">
@@ -263,6 +291,17 @@ export default function Form() {
             </span>
           </h5>
           <h2 className="main-title text-center mb-50">Get In Touch</h2>
+      <p className="text-center mb-30">
+        Don't miss this exclusive opportunity to elevate your crypto journey! Whether you're a seasoned investor or just getting started, our tailored resources will help you unlock the secrets to maximizing profits.
+      </p>
+      <ul className="benefits-listform text-center mb-40">
+        <li>📈 Proven strategies for 300% profit</li>
+        <li>🔒 Secure and GDPR-compliant data handling</li>
+        <li>🎁 Exclusive access to bonus content and airdrops</li>
+      </ul>
+      <p className="text-center mb-40">
+        Complete the form now to claim your spot and receive your guide instantly!
+      </p>
         </div>
         <div className="form-container mt-5" style={{ position: "relative" }}>
           {currentStep === 1 && (

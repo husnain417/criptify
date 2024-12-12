@@ -4,6 +4,7 @@ import { features } from "@/data/features";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useSize } from "react-use";
 
 export default function Service2() {
   const [timeLeft, setTimeLeft] = useState({
@@ -90,13 +91,34 @@ export default function Service2() {
                 Unlock the best rewards with our exclusive airdrop program. 
                 Limited spots are available, so act fast to secure your place.
               </p>
+              <p className="text mt-4">
+                Here's why you don't want to miss out:
+              </p>
+              <ul className="persuasive-list">
+                <li>
+                <strong style={{ color: "#673EFA" ,marginRight:"10px"  }}>✔</strong>
+                <strong style={{ fontSize: "18px", color: "#000000" }}>Exclusive Access:</strong>Be part of an elite group to 
+                  enjoy unique perks and benefits.
+                </li>
+                <li>
+                <strong style={{ color: "#673EFA" ,marginRight:"10px"  }}>✔</strong>
+                <strong style={{ fontSize: "18px", color: "#000000" }}>Instant Rewards:</strong> Gain immediate access to 
+                  valuable tokens and offers.
+                </li>
+                <li>
+                <strong style={{ color: "#673EFA" ,marginRight:"10px"  }}>✔</strong>
+                <strong style={{ fontSize: "18px", color: "#000000"}}>Zero Risk, High Potential:</strong> Joining is free, 
+                  and the rewards can be life-changing.
+                </li>
+              </ul>
+              <p className="text">
+                Don’t wait until it’s too late—opportunities like this don’t come often!
+              </p>
+              {/* Link to Get Started */}
+              <Link scroll={true} href="/airdrop" className="gt-btn gt-btn-icon">
+                View Airdrop Details
+              </Link>
             </div>
-
-
-            {/* Link to Get Started */}
-            <Link scroll={true} href="/airdrop" className="gt-btn gt-btn-icon">
-              View Aidrop Details
-            </Link>
           </div>
         </div>
       </div>

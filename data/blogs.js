@@ -13,6 +13,7 @@ export const blogCards = [
       },
     ],
     title: "How to Maximize Profits in Crypto: A Beginner's Guide",
+    content: "Discover essential strategies for navigating the cryptocurrency market and maximizing your investment potential with our comprehensive beginner's guide.",
     date: "15",
     month: "November",
     delay: ".3s",
@@ -31,6 +32,7 @@ export const blogCards = [
       },
     ],
     title: "5 Key Strategies for Investing in Crypto Safely",
+    content: "Learn how to protect your investments and minimize risks with our top 5 safety strategies for cryptocurrency investing.",
     date: "10",
     month: "November",
     delay: ".6s",
@@ -49,65 +51,68 @@ export const blogCards = [
       },
     ],
     title: "The Future of Blockchain: Trends You Need to Know",
+    content: "Explore the cutting-edge trends and innovations that are shaping the future of blockchain technology in 2024 and beyond.",
     date: "22",
     month: "October",
     delay: ".9s",
-  }
-  // {
-  //   id: 4,
-  //   thumb: "/assets/img/blog/blogCardThumb1_1.png",
-  //   meta: [
-  //     {
-  //       icon: "/assets/img/icon/userIcon.png",
-  //       text: "By Criptify Team",
-  //     },
-  //     {
-  //       icon: "/assets/img/icon/tagIcon.png",
-  //       text: "Crypto Insights",
-  //     },
-  //   ],
-  //   title: "Understanding Crypto Airdrops: What You Need to Know",
-  //   date: "5",
-  //   month: "October",
-  //   delay: ".12s",
-  // },
-  // {
-  //   id: 5,
-  //   thumb: "/assets/img/blog/blogCardThumb1_2.png",
-  //   meta: [
-  //     {
-  //       icon: "/assets/img/icon/userIcon.png",
-  //       text: "By Criptify Team",
-  //     },
-  //     {
-  //       icon: "/assets/img/icon/tagIcon.png",
-  //       text: "Investment",
-  //     },
-  //   ],
-  //   title: "How to Diversify Your Crypto Portfolio for Long-Term Success",
-  //   date: "28",
-  //   month: "September",
-  //   delay: ".15s",
-  // },
-  // {
-  //   id: 6,
-  //   thumb: "/assets/img/blog/blogCardThumb1_3.png",
-  //   meta: [
-  //     {
-  //       icon: "/assets/img/icon/userIcon.png",
-  //       text: "By Criptify Team",
-  //     },
-  //     {
-  //       icon: "/assets/img/icon/tagIcon.png",
-  //       text: "Cryptocurrency",
-  //     },
-  //   ],
-  //   title: "Crypto Regulations: What You Should Know for 2024",
-  //   date: "1",
-  //   month: "September",
-  //   delay: ".18s",
-  // },
-  // // Add more blog posts related to Criptify's industry insights here
+  },
+  {
+    id: 4,
+    thumb: "/assets/img/airdrop.jpg",
+    meta: [
+      {
+        icon: "/assets/img/icon/userIcon.png",
+        text: "By Criptify Team",
+      },
+      {
+        icon: "/assets/img/icon/tagIcon.png",
+        text: "Crypto Insights",
+      },
+    ],
+    title: "Understanding Crypto Airdrops: What You Need to Know",
+    content: "Dive into the world of crypto airdrops and learn how to identify, participate in, and benefit from these unique cryptocurrency distribution events.",
+    date: "5",
+    month: "October",
+    delay: ".12s",
+  },
+  {
+    id: 5,
+    thumb: "/assets/img/port.png",
+    meta: [
+      {
+        icon: "/assets/img/icon/userIcon.png",
+        text: "By Criptify Team",
+      },
+      {
+        icon: "/assets/img/icon/tagIcon.png",
+        text: "Investment",
+      },
+    ],
+    title: "How to Diversify Your Crypto Portfolio for Long-Term Success",
+    content: "Master the art of portfolio diversification with our expert tips on spreading risk and maximizing potential returns in the cryptocurrency market.",
+    date: "28",
+    month: "September",
+    delay: ".15s",
+  },
+  {
+    id: 6,
+    thumb: "/assets/img/regu.jpg",
+    meta: [
+      {
+        icon: "/assets/img/icon/userIcon.png",
+        text: "By Criptify Team",
+      },
+      {
+        icon: "/assets/img/icon/tagIcon.png",
+        text: "Cryptocurrency",
+      },
+    ],
+    title: "Crypto Regulations: What You Should Know for 2024",
+    content: "Stay informed about the latest cryptocurrency regulations and how they might impact your investment strategy in the coming year.",
+    date: "1",
+    month: "September",
+    delay: ".18s",
+  },
 ];
 
 
