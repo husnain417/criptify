@@ -295,9 +295,14 @@ button.gt-btn {
     font-size: 1rem;
   }
 
-  .title1,.title2,.title3
+  .title1,.title2
   {
     font-size: 0.8rem;
+  }
+
+  .title3
+  {
+    font-size: 0.6rem;
   }
 }
 
