@@ -1,9 +1,12 @@
 "use client";
 import React, { useEffect } from "react";
+import '../../public/assets/css/headertop.css';
 
 export default function HeaderTop() {
   useEffect(() => {
+    // Remove Google Translate cookies and set the language to French
     const resetLanguageToFrench = () => {
+      // Clear existing cookies
       document.cookie
         .split(";")
         .forEach((cookie) => {
@@ -12,6 +15,8 @@ export default function HeaderTop() {
             document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
           }
         });
+
+      // Set cookie to force French language
       document.cookie = "googtrans=/en/fr; path=/;";
     };
 
@@ -40,11 +45,13 @@ export default function HeaderTop() {
       };
     };
 
+    // Clear cookies, set French language, and load the script
     resetLanguageToFrench();
     loadGoogleTranslate();
   }, []);
 
   useEffect(() => {
+    // Force the language to French after Google Translate initializes
     const setLanguageToFrench = () => {
       const iframe = document.querySelector("iframe.goog-te-menu-frame");
       if (iframe) {
@@ -85,13 +92,15 @@ export default function HeaderTop() {
               <a href="tel:2086660112">+208-666-0112</a>
             </li>
           </ul>
+
+          <div className="top-right">
+          <span className="text-white">Languages:</span>
           <div
             id="google_translate_element"
             style={{
               zIndex: 9999,
             }}
           ></div>
-          <div className="top-right">
             <div className="social-icon d-flex align-items-center">
               <span>Follow Us:</span>
               <a href="#">
