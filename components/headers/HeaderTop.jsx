@@ -34,15 +34,27 @@ export default function HeaderTop() {
       }
 
       window.googleTranslateElementInit = () => {
+        // Initialize for the first container
         new window.google.translate.TranslateElement(
           {
-            pageLanguage: "en", // Original language of your website
-            includedLanguages: "en,fr", // Languages you want to support
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE, // Layout style
+            pageLanguage: "en",
+            includedLanguages: "en,fr",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
           },
-          "google_translate_element" // The container ID
+          "google_translate_element1"
+        );
+      
+        // Initialize for the second container
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,fr",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "2"
         );
       };
+      
     };
 
     // Clear cookies, set French language, and load the script
@@ -96,7 +108,7 @@ export default function HeaderTop() {
           <div className="top-right">
           <span className="text-white">Languages:</span>
           <div
-            id="google_translate_element"
+            id="google_translate_element1"
             style={{
               zIndex: 9999,
             }}

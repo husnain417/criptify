@@ -10,6 +10,83 @@ export default function MobileNav() {
   const [activeParent, setActiveParent] = useState(-1);
   const [activeParent2, setActiveParent2] = useState(-1);
   const pathname = usePathname();
+  useEffect(() => {
+    // Remove Google Translate cookies and set the language to French
+    const resetLanguageToFrench = () => {
+      // Clear existing cookies
+      document.cookie
+        .split(";")
+        .forEach((cookie) => {
+          const cookieName = cookie.split("=")[0].trim();
+          if (cookieName.startsWith("googtrans")) {
+            document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+          }
+        });
+
+      // Set cookie to force French language
+      document.cookie = "googtrans=/en/fr; path=/;";
+    };
+
+    // Load the Google Translate script
+    const loadGoogleTranslate = () => {
+      const existingScript = document.querySelector(
+        'script[src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"]'
+      );
+      if (!existingScript) {
+        const script = document.createElement("script");
+        script.src =
+          "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+
+      window.googleTranslateElementInit = () => {
+        const element2 = document.getElementById("google_translate_element2");
+        if (element2 && !element2.hasChildNodes()) {
+          new window.google.translate.TranslateElement(
+            {
+              pageLanguage: "en",
+              includedLanguages: "en,fr",
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            },
+            "google_translate_element2"
+          );
+        }
+      };
+      
+      
+    };
+    // Clear cookies, set French language, and load the script
+    resetLanguageToFrench();
+    loadGoogleTranslate();
+  }, []);
+  
+
+  useEffect(() => {
+    // Force the language to French after Google Translate initializes
+    const setLanguageToFrench = () => {
+      const iframe = document.querySelector("iframe.goog-te-menu-frame");
+      if (iframe) {
+        const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+        const frenchOption = innerDoc.querySelector('a[lang="fr"]');
+        if (frenchOption) {
+          frenchOption.click(); // Simulate a click to switch to French
+        }
+      }
+    };
+
+    // Wait for the iframe to load and apply the language setting
+    const intervalId = setInterval(() => {
+      const iframe = document.querySelector("iframe.goog-te-menu-frame");
+      if (iframe) {
+        setLanguageToFrench();
+        clearInterval(intervalId);
+      }
+    }, 500);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(intervalId);
+  }, []);
   
   const handleScroll = (e, href) => {
     e.preventDefault();
@@ -171,7 +248,7 @@ export default function MobileNav() {
       ))}
       <li>          <span className="text-white">Languages:</span>
           <div
-            id="google_translate_element"
+            id="google_translate_element2"
             style={{
               zIndex: 9999,
             }}
