@@ -169,6 +169,13 @@ export default function MobileNav() {
           {renderMenuItem(item)}
         </li>
       ))}
+      <li>          <span className="text-white">Languages:</span>
+          <div
+            id="google_translate_element"
+            style={{
+              zIndex: 9999,
+            }}
+          ></div></li>
       </ul>
         </div>
       </div>
