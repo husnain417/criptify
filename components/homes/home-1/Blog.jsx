@@ -53,7 +53,7 @@ export default function Blog() {
           <div className="blog-card-wrap style1">
             {blogCards.map((card, index) => (
               <Link 
-                href={`/details`} 
+              href={`/details/${card.id}`} 
                 key={index}
                 className="blog-card-link"
               >

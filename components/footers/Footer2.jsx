@@ -192,7 +192,7 @@ export default function Footer2() {
                         <Link
                           scroll={false}
                           className="text-underline"
-                          href={`/about`}
+                          href={``}
                         >
                           Privacy Policy.
                         </Link>

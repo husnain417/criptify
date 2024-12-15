@@ -5,16 +5,22 @@ import HeaderTop from "@/components/headers/HeaderTop";
 import Cta from "@/components/common/Cta";
 import BlogDetails from "@/components/otherPages/blog/BlogDetails";
 import Link from "next/link";
-import { allBlogs } from "@/data/blogs";
+import { blogCards } from "@/data/blogs";
 import Footer2 from "@/components/footers/Footer2";
 export const metadata = {
   title:
-    "Blog Details || Techbe-IT Solution & Technology Service Nextjs Template",
-  description: "Techbe-IT Solution & Technology Service Nextjs Template",
+    "Blog Details"
 };
 export default function Page({ params }) {
+  console.log('Params:', params); 
+  console.log('All Blogs:', blogCards); 
+
   const blogItem =
-    allBlogs.filter((elm) => elm.id == params.id)[0] || allBlogs[0];
+  blogCards.find((elm) => {
+      console.log('Comparing:', elm.id, 'with', params.id); 
+      return elm.id.toString() === params.id;
+    }) || blogCards[0];
+
   return (
     <>
       <HeaderTop />

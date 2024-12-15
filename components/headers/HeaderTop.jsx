@@ -3,9 +3,7 @@ import React, { useEffect } from "react";
 
 export default function HeaderTop() {
   useEffect(() => {
-    // Remove Google Translate cookies and set the language to French
     const resetLanguageToFrench = () => {
-      // Clear existing cookies
       document.cookie
         .split(";")
         .forEach((cookie) => {
@@ -14,8 +12,6 @@ export default function HeaderTop() {
             document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
           }
         });
-
-      // Set cookie to force French language
       document.cookie = "googtrans=/en/fr; path=/;";
     };
 
@@ -44,13 +40,11 @@ export default function HeaderTop() {
       };
     };
 
-    // Clear cookies, set French language, and load the script
     resetLanguageToFrench();
     loadGoogleTranslate();
   }, []);
 
   useEffect(() => {
-    // Force the language to French after Google Translate initializes
     const setLanguageToFrench = () => {
       const iframe = document.querySelector("iframe.goog-te-menu-frame");
       if (iframe) {

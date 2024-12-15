@@ -30,7 +30,7 @@ export default function Header1() {
                 </div>
               </div>
               <div className="col-auto">
-                <nav className="main-menu d-none d-xl-inline-block">
+                <nav className="main-menu d-none d-xl-inline-block ml-40">
                   <ul>
                     <Nav />
                   </ul>
